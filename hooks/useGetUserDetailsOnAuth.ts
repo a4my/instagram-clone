@@ -92,16 +92,18 @@ function useGetUserDetailsOnAuth() {
   }
 
   function userLiveUpdates(user: User) {
-    const unsubscribe = onSnapshot(
-      doc(db, 'users', user.displayName!),
-      (document: any) => {
-        setUserNotifications(document.data());
-        getChatRoomMessages(document.data());
-        getHomePagePosts(document.data());
-        getFollowingStories(document.data());
-      }
-    );
-    setListeners((current) => [...current, unsubscribe]);
+    if (user && user.displayName) {
+      const unsubscribe = onSnapshot(
+        doc(db, 'users', user.displayName),
+        (document: any) => {
+          setUserNotifications(document.data);
+          getChatRoomMessages(document.data);
+          getHomePagePosts(document.data);
+          getFollowingStories(document.data);
+        }
+      );
+      setListeners((current) => [...current, unsubscribe]);
+    }
   }
 
   function getUserPosts(user: User) {
