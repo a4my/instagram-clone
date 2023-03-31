@@ -1,7 +1,7 @@
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import React from 'react';
 import { followingFollowerInfo } from './atoms';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 interface Props {
   setArray: React.Dispatch<React.SetStateAction<followingFollowerInfo[]>>;

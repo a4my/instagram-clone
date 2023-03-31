@@ -15,7 +15,7 @@ import {
   serverTimestamp,
 } from 'firebase/firestore';
 import { User } from 'firebase/auth';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 import { notificationTypes, userDetailTypes } from './atoms';
 
 interface selectedImageProps {

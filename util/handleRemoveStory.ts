@@ -1,7 +1,7 @@
 import React from 'react';
 import { doc, getFirestore, updateDoc } from 'firebase/firestore';
 import { deleteObject, getStorage, ref } from 'firebase/storage';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 interface Props {
   username: string;

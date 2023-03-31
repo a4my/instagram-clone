@@ -66,16 +66,16 @@ function UserSuggestions() {
         >
           {spotlightUsers.map((spotlightUserDetails) => (
             <div
-              key={`${spotlightUserDetails.userId}Spotlight`}
+              key={`${spotlightUserDetails?.userId}Spotlight`}
               className="flex items-center justify-between py-2"
             >
               <div className="flex items-center gap-2">
-                {spotlightUserDetails.avatarURL?.length !== 0 ? (
-                  <Link href={`/${spotlightUserDetails.username}`}>
+                {spotlightUserDetails?.avatarURL?.length !== 0 ? (
+                  <Link href={`/${spotlightUserDetails?.username}`}>
                     <a>
                       <Image
                         className="h-8 w-8 cursor-pointer select-none rounded-full object-cover"
-                        src={spotlightUserDetails.avatarURL!}
+                        src={spotlightUserDetails?.avatarURL!}
                         alt="avatar"
                         width="32"
                         height="32"
@@ -83,7 +83,7 @@ function UserSuggestions() {
                     </a>
                   </Link>
                 ) : (
-                  <Link href={`/${spotlightUserDetails.username}`}>
+                  <Link href={`/${spotlightUserDetails?.username}`}>
                     <a>
                       <div className="h-8 w-8">
                         <ProfilePicSVG strokeWidth="2" />
@@ -99,22 +99,22 @@ function UserSuggestions() {
                   </Link>
                 )}
                 <div>
-                  <Link href={`/${spotlightUserDetails.username}`}>
+                  <Link href={`/${spotlightUserDetails?.username}`}>
                     <a>
                       <p className="cursor-pointer text-xs font-semibold">
-                        {spotlightUserDetails.username}
+                        {spotlightUserDetails?.username}
                       </p>
                     </a>
                   </Link>
                   <p className="text-xs text-[#818181]">
-                    Followed by {spotlightUserDetails.followers!.length}{' '}
-                    {spotlightUserDetails.followers!.length === 1
+                    Followed by {spotlightUserDetails?.followers!.length}{' '}
+                    {spotlightUserDetails?.followers!.length === 1
                       ? 'user'
                       : 'users'}
                   </p>
                 </div>
               </div>
-              <Link href={`/${spotlightUserDetails.username}`}>
+              <Link href={`/${spotlightUserDetails?.username}`}>
                 <a>
                   <p className="cursor-pointer text-xs font-semibold text-[#0095f6]">
                     Profile

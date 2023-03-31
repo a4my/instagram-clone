@@ -12,7 +12,7 @@ import {
 } from 'firebase/firestore';
 import { useAtom } from 'jotai';
 import React from 'react';
-import app from '../util/firbaseConfig';
+import app from '../util/firebaseConfig';
 import atoms, {
   notificationTypes,
   chatRoomMessagesTypes,
@@ -96,7 +96,13 @@ function useGetUserDetailsOnAuth() {
       const unsubscribe = onSnapshot(
         doc(db, 'users', user.displayName),
         (document: any) => {
-          setUserNotifications(document.data);
+          if (
+            document &&
+            document.data &&
+            typeof document.data === 'function'
+          ) {
+            setUserNotifications(document.data());
+          }
           getChatRoomMessages(document.data);
           getHomePagePosts(document.data);
           getFollowingStories(document.data);

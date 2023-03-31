@@ -7,7 +7,7 @@ import {
   arrayRemove,
 } from 'firebase/firestore';
 import { postCommentTypes, postType, userDetailTypes } from './atoms';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 import handleUpdateHeartNotifcation from './handleUpdateHeartNotification';
 
 interface Props {

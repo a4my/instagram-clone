@@ -10,7 +10,7 @@ import {
 } from 'firebase/firestore';
 import { useAtom } from 'jotai';
 import atoms, { postType } from '../util/atoms';
-import app from '../util/firbaseConfig';
+import app from '../util/firebaseConfig';
 
 function useGetOtherUserPosts({
   user,

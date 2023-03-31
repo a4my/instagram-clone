@@ -1,6 +1,6 @@
 import React from 'react';
 import { getFirestore, getDoc, doc } from 'firebase/firestore';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 import { notificationTypes } from './atoms';
 
 interface Props {

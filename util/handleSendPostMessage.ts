@@ -2,7 +2,7 @@ import React from 'react';
 import { getFirestore, updateDoc, doc, arrayUnion } from 'firebase/firestore';
 import { User } from 'firebase/auth';
 import { postCommentTypes, postType, userDetailTypes } from './atoms';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 import handleUpdateHeartNotifcation from './handleUpdateHeartNotification';
 
 interface Props {

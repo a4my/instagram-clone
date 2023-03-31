@@ -1,5 +1,5 @@
 import { doc, arrayUnion, updateDoc, getFirestore } from 'firebase/firestore';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 function handleFollowUser({
   userName,

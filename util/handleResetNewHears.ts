@@ -1,5 +1,5 @@
 import { doc, getFirestore, updateDoc } from 'firebase/firestore';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 export default function handleResetNewHearts(username: string) {
   const db = getFirestore(app);

@@ -7,7 +7,7 @@ import {
   doc,
   updateDoc,
 } from 'firebase/firestore';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 interface Props {
   e: any;

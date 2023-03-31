@@ -3,7 +3,7 @@ import React from 'react';
 import { useAtom } from 'jotai';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import atoms from '../util/atoms';
-import app from '../util/firbaseConfig';
+import app from '../util/firebaseConfig';
 
 function useGetSpotlightedUsers() {
   const db = getFirestore(app);

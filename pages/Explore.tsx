@@ -48,7 +48,7 @@ const Explore: NextPage = () => {
             key={userDocs.userId}
           >
             <div className="flex items-center gap-3">
-              <Link href={userDocs.username!}>
+              <Link href={userDocs.username ? `/${userDocs.username}` : '#'}>
                 <a>
                   {userDocs.avatarURL ? (
                     <div>
@@ -68,26 +68,33 @@ const Explore: NextPage = () => {
                 </a>
               </Link>
               <div>
-                <Link href={userDocs.username!}>
+                <Link href={userDocs.username ? `/${userDocs.username}` : '#'}>
                   <a>
                     <p className="cursor-pointer text-sm font-semibold">
                       {userDocs.username}
                     </p>
                   </a>
                 </Link>
-                <p className="hidden text-xs text-[#818181] sm:block">
-                  Followed by {userDocs.followers!.length}{' '}
-                  {userDocs.followers!.length === 1 ? 'user' : 'users'}{' '}
-                  {userDocs.followers!.includes(userDetails.displayName!)
-                    ? 'including you'
-                    : ''}
-                </p>
+                {userDocs && userDocs.followers && (
+                  <p className="hidden text-xs text-[#818181] sm:block">
+                    Followed by {userDocs.followers.length}{' '}
+                    {userDocs.followers.length === 1 ? 'user' : 'users'}{' '}
+                    {userDocs.followers.includes(userDetails.displayName!)
+                      ? 'including you'
+                      : ''}
+                  </p>
+                )}
+                {!userDocs.followers && (
+                  <p className="hidden text-xs text-[#818181] sm:block">
+                    Followed by 0 users
+                  </p>
+                )}
                 <p className="text-xs text-[#818181] sm:hidden">
-                  Followed by {userDocs.followers!.length}
+                  Followed by {userDocs.followers?.length || 0}
                 </p>
               </div>
             </div>
-            <Link href={userDocs.username!}>
+            <Link href={userDocs.username ? `/${userDocs.username}` : '#'}>
               <a>
                 <p className="cursor-pointer pr-5 text-xs font-semibold text-[#0095f6]">
                   Profile

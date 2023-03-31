@@ -9,7 +9,7 @@ import {
   getFirestore,
 } from 'firebase/firestore';
 import { useAtom } from 'jotai';
-import app from '../util/firbaseConfig';
+import app from '../util/firebaseConfig';
 import atoms, { notificationTypes } from '../util/atoms';
 
 function useExploreUsers(requestMoreUsers: boolean) {

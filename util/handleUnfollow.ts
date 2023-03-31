@@ -2,7 +2,7 @@ import React from 'react';
 import { doc, arrayRemove, updateDoc, getFirestore } from 'firebase/firestore';
 import { SetStateAction } from 'jotai';
 import { notificationTypes } from './atoms';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 interface Props {
   userNotifications: notificationTypes;

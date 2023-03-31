@@ -1,7 +1,7 @@
 import React from 'react';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { getFirestore, updateDoc, doc } from 'firebase/firestore';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 interface Props {
   url: string;
@@ -38,12 +38,13 @@ async function handleUpdateProfilePhoto({
     });
 
   // update all subscribed chatrooms with new image
-
-  chatRoomIDs.forEach((chatRoomID: string) => {
-    updateDoc(doc(db, chatRoomID, 'users'), {
-      [`${username}Avatar`]: url,
+  if (chatRoomIDs && Array.isArray(chatRoomIDs) && chatRoomIDs.length > 0) {
+    chatRoomIDs.forEach((chatRoomID: string) => {
+      updateDoc(doc(db, chatRoomID, 'users'), {
+        [`${username}Avatar`]: url,
+      });
     });
-  });
+  }
 
   // update database user with new photo url
   updateDoc(countRef, {

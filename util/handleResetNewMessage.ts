@@ -1,5 +1,5 @@
 import { getFirestore, updateDoc, doc } from 'firebase/firestore';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 interface Props {
   username: string;

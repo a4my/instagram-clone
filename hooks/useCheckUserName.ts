@@ -9,7 +9,7 @@ import {
 } from 'firebase/firestore';
 import { useAtom } from 'jotai';
 import atoms, { notificationTypes } from '../util/atoms';
-import app from '../util/firbaseConfig';
+import app from '../util/firebaseConfig';
 
 function useCheckUserName({
   nameSearch,

@@ -1,7 +1,7 @@
 import { User } from 'firebase/auth';
 import { getFirestore, updateDoc, doc, getDoc } from 'firebase/firestore';
 import { postCommentTypes, postType, userDetailTypes } from './atoms';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 export default function handleUpdateHeartNotifcation({
   postUserDetails,

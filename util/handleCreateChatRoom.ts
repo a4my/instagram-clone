@@ -7,7 +7,7 @@ import {
   updateDoc,
   arrayUnion,
 } from 'firebase/firestore';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 import { notificationTypes } from './atoms';
 
 interface Props {

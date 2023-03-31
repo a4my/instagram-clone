@@ -12,7 +12,7 @@ import {
   serverTimestamp,
 } from 'firebase/firestore';
 import handleCreateUsernameQueryArray from './handleCreateUsernameQueryArray';
-import app from './firbaseConfig';
+import app from './firebaseConfig';
 
 interface SubmitUser {
   username: string;
