@@ -27,11 +27,6 @@ async function handleUploadToCloud({
     useWebWorker: true,
   };
   const storage = getStorage();
-
-  if (!location || !username) {
-    return { success: false, error: 'Invalid location or username' };
-  }
-
   const storageRef = ref(storage, `${location}/${username}`);
 
   let photoURL;
@@ -48,7 +43,7 @@ async function handleUploadToCloud({
 
     // upload to storage, and then retrieve the usable URL
     await uploadBytes(storageRef, compressedFile).then(() => {
-      // image uploaded
+      // image uplaoded
     });
     await getDownloadURL(ref(storage, `${location}/${username}`))
       .then((url) => {
@@ -61,10 +56,9 @@ async function handleUploadToCloud({
       });
   } else {
     console.log('please only use .png, .jpg, .jpeg file types');
-    return { success: false, error: 'Invalid file type' };
   }
 
-  return { success: true, photoURL };
+  return { photoURL };
 }
 
 interface handleUploadImageProps {
@@ -78,7 +72,7 @@ interface handleUploadImageProps {
   handleImgURLFunction: any;
 }
 
-async function handleUploadImage({
+function handleUploadImage({
   e,
   location,
   username,
@@ -88,15 +82,14 @@ async function handleUploadImage({
   setAddPhoto,
   handleImgURLFunction,
 }: handleUploadImageProps) {
-  const userDetails: userDetailTypes = await handleUploadToCloud({
-    e,
-    location,
-    username,
-    maxWidthOrHeight,
-    setLoading,
-  });
-
-  if (userDetails.success) {
+  async function handler() {
+    const userDetails: userDetailTypes = await handleUploadToCloud({
+      e,
+      location,
+      username,
+      maxWidthOrHeight,
+      setLoading,
+    });
     handleImgURLFunction({
       url: userDetails.photoURL!,
       username,
@@ -104,9 +97,8 @@ async function handleUploadImage({
       setLoading,
       setAddPhoto,
     });
-  } else {
-    console.log(userDetails.error);
   }
+  handler();
 }
 
 export default handleUploadImage;
