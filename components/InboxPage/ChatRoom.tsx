@@ -107,7 +107,7 @@ function ChatRoom({ chatRoomID, userID, activeChat, activeChatId }: Props) {
       {activeChat === activeChatId ? (
         <div className="absolute bottom-0 top-[59px] left-[130px] flex w-[calc(100%-130px)] cursor-default flex-col justify-end border-l border-t  border-stone-300 dark:border-stone-700 md:left-[350px] md:w-[calc(100%-350px)]">
           <div className="flex cursor-default flex-col-reverse gap-5 overflow-y-auto px-1 py-2 dark:[color-scheme:dark] md:px-5">
-            {messages.map((message, index) => (
+            {messages?.map((message, index) => (
               <div
                 key={`key${index}`}
                 className={`${

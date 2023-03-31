@@ -37,14 +37,20 @@ function useGetOtherUserPosts({
       orderBy('createdAt', 'desc'),
       limitSearch ? limit(1) : limit(50)
     );
-    const unsubscribe = onSnapshot(q, (querySnapshot: any) => {
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const postsArray: postType[] = [];
-      querySnapshot.forEach((document: any) => {
-        postsArray.push(document.data());
-      });
+      querySnapshot.forEach(
+        (document: firebase.firestore.DocumentSnapshot<postType>) => {
+          postsArray.push(document.data());
+        }
+      );
       setProfilePosts(postsArray);
     });
-    setListeners((current) => [...current, unsubscribe]);
+    try {
+      setListeners((current) => [...current, unsubscribe]);
+    } catch (error) {
+      console.error('Error setting listener:', error);
+    }
   }
 
   React.useEffect(() => {

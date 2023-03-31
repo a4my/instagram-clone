@@ -17,6 +17,8 @@ const Home: NextPage = () => {
   const [followingArrayStatus] = useAtom(atoms.followingArrayStatus);
   const [postsLoading, setPostsLoading] = useAtom(atoms.postsLoading);
 
+  console.log(followingArray);
+
   if (!userStatus) {
     return <LoadingPage checkingUserRoute={false} />;
   }
